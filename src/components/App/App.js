@@ -1,15 +1,19 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from '../Authecity/Login';
+import Home from './Home';
+import Navbar from './Navbar';
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
-    <Login/>
+  
+    <Navbar/>
 
 
 <Routes>
 <Route path = "/Login" element={<Login />} />
+<Route path="/" element={<Home/>}/>
 
 
 
@@ -18,7 +22,6 @@ function App() {
 </Routes>
     </BrowserRouter>
    
-  );
+  )
 }
 
-export default App;
