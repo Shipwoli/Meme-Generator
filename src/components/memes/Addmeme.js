@@ -9,7 +9,7 @@ const AddMeme = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://api.npoint.io/c928617fcb39290e9a6d", {
+      await axios.post("https://api.npoint.io/0f2bb8241816fdc5b20b", {
         title,
         imageUrl,
         datePublished,

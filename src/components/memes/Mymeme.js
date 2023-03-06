@@ -4,7 +4,7 @@ const MyMemes = () => {
   const [memes, setMemes] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:9292/memes')
+    fetch('https://api.npoint.io/de5e266a6f5b0dc8a592')
       .then(response => response.json())
       .then(data => setMemes(data))
       .catch(error => console.error(error));

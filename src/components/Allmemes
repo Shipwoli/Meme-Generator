@@ -1,0 +1,57 @@
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+
+const AllMemes = () => {
+  const [memes, setMemes] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+   
+    fetch('https://api.npoint.io/de5e266a6f5b0dc8a592')
+      .then(response => response.json())
+      .then(data => {
+        setMemes(data);
+      })
+      .catch(error => {
+        console.error(error); // Handle errors
+      });
+  }, []);
+
+  const handleSearch = event => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredMemes = memes.filter(meme => {
+    return meme.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      meme.datePublished.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <h1>Memes</h1>
+          <Form>
+            <Form.Group controlId="searchQuery">
+              <Form.Control type="text" placeholder="Search" value={searchQuery} onChange={handleSearch} />
+            </Form.Group>
+          </Form>
+          <hr />
+          <Row>
+            {filteredMemes.map(meme => (
+              <Col key={meme.id} sm={6} md={4} lg={3}>
+                <div className="my-3">
+                  <img src={meme.imageUrl} alt={meme.title} className="img-fluid rounded" />
+                  <h4 className="mt-2">{meme.title}</h4>
+                  <p className="text-muted">{meme.datePublished}</p>
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </Col>
+      </Row>
+    </Container>
+  );
+};
+
+export default AllMemes;
