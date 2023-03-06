@@ -1,34 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"
 
-const Login = ({ handleLogin }) => {
-  const [username, setUsername] = useState('');
+const Login = () => {
+
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Validate username and password
-    if (username.trim() === '' || password.trim() === '') {
-      return;
-    }
-    handleLogin({ username, password });
-  };
+  function handleSubmit(e) {
+    e.preventDefault()
+
+    fetch("http://127.0.0.1:9292/auth/login", {
+      method: 'POST',
+      body: JSON.stringify({
+        email: email,
+        password: password
+      })
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message === "Login success!") {
+          alert(data.message)
+          navigate("/moviesList")
+        } else if (data.message === "Invalid email or password") {
+          alert(data.message)
+          navigate('/login')
+        }
+      })
+  }
+
 
   return (
-    <div className="container">
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="username" className="form-label">Username</label>
-          <input type="text" className="form-control" id="username" name="username" value={username} onChange={(event) => setUsername(event.target.value)} required />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">Password</label>
-          <input type="password" className="form-control" id="password" name="password" value={password} onChange={(event) => setPassword(event.target.value)} required />
-        </div>
-        <button type="submit" className="btn btn-primary">Login</button>
-      </form>
-    </div>
-  );
-};
+    <form class="container" onSubmit={e => handleSubmit(e)}>
+      <h2>Login Here</h2>
+      <div class="mb-3 col-lg-6">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
 
-export default Login;
+      </div>
+      <div class="mb-3 col-lg-6">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} class="form-control" id="exampleInputPassword1" required />
+      </div>
+
+      <input type="submit" class="btn btn-success" />
+
+    </form>
+  )
+}
+
+export default Login
