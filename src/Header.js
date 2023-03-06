@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -20,7 +21,7 @@ const Header = () => {
               <a className="nav-link" href="/mymemes">My Memes</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/addmeme">Add Meme</a>
+              <a className="nav-link" href="AddMeme">Add Meme</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/about">About</a>
