@@ -9,6 +9,7 @@ import Contact from '../../contact';
 import Register from '../Authecity/Register';
 import AddMeme from "../memes/Addmeme";
 import MyMemes from "../memes/Mymeme";
+import Search from "../memes/Search";
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
 <Route path="/Contact" element={<Contact/>}/>
 <Route path="/AddMeme"element={<AddMeme/>}/>
 <Route path="/Mymeme"element={<MyMemes/>}/>
+<Route path ="/Search" element={<Search/>}/>
 
 
 
