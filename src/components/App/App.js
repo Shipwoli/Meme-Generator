@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Login from '../Authecity/Login';
 import Home from './Home';
 import Navbar from './Navbar';
@@ -11,11 +11,16 @@ import AddMeme from "../memes/Addmeme";
 import MyMemes from "../memes/Mymeme";
 import Search from "../memes/Search";
 import AllMemes from "../Allmemes";
+import About from "../About";
+
+
+
+
 export default function App() {
   return (
     <BrowserRouter>
   
-    
+    <Navbar/>
     <Header/>
     
     
@@ -33,8 +38,7 @@ export default function App() {
 <Route path="/Mymemes"element={<MyMemes/>}/>
 <Route path ="/Search" element={<Search/>}/>
 <Route path ="/AllMemes"element={<AllMemes/>}/>
-
-
+<Route path = "/About" element={<About/>}/>
 
 </Routes>
     </BrowserRouter>

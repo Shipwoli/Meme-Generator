@@ -8,7 +8,7 @@ function Home() {
         <Col md={6} className="text-center">
           <h1>Welcome to Meme Generator</h1>
           <p>Create, share, and enjoy hilarious memes with friends and family.</p>
-          <Button variant="primary" size="lg" href="/memes">
+          <Button variant="primary" size="lg" href="Mymemes">
             View Memes
           </Button>
         </Col>
