@@ -1,6 +1,14 @@
 # Meme Generator Frontend
 This is the frontend for the Meme Generator project. It allows users to register, login, and create, view, update, and delete memes.
 
+## Here is my link to my backend and live deployed link for the application
+ - [Live link](https://meme-generator-shipwoli.vercel.app)
+ 
+ - [Backend repository](https://github.com/Shipwoli/Memes-generator-backend)
+
+ - [Frontend repository](https://github.com/Shipwoli/meme-generator)
+
+
 # Technologies Used
 This project was built with React, Bootstrap, and Axios.
 
