@@ -8,6 +8,7 @@ import Header from '../../Header';
 import Contact from '../../contact';
 import Register from '../Authecity/Register';
 import AddMeme from "../memes/Addmeme";
+import MyMemes from "../memes/Mymeme";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
   
     
     <Header/>
+    
   
 
 
@@ -25,6 +27,7 @@ export default function App() {
 <Route path ="/Register" element={<Register/>}/>
 <Route path="/Contact" element={<Contact/>}/>
 <Route path="/AddMeme"element={<AddMeme/>}/>
+<Route path="/Mymeme"element={<MyMemes/>}/>
 
 
 

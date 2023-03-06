@@ -18,7 +18,7 @@ const Header = () => {
               <a className="nav-link" href="/memes">All Memes</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/mymemes">My Memes</a>
+              <a className="nav-link" href="Mymeme">My Memes</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="AddMeme">Add Meme</a>
